@@ -15,8 +15,9 @@ def user_directory_path(instance, filename):
 
 class StudentMaster(models.Model):
     student = models.OneToOneField(StudentDetails)
-    year = models.OneToOneField(Year)
-    division = models.OneToOneField(Division)
+    year = models.ForeignKey(Year)
+    division = models.ForeignKey(Division)
+
 
 
 class StudentDetails(models.Model):

@@ -70,4 +70,3 @@ class Faculty(models.Model):
 
     doc = models.FileField(upload_to=user_directory_path)
     doc_profile_pic = models.FileField(upload_to=user_directory_path)
-
