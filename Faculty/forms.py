@@ -1,8 +1,5 @@
 from django import forms
-from .models import Faculty
-
-from .validators import file_size_validators
-from .models import StudentDetails
+from .models import Facultygit
 
 
 class StudentForm(forms.ModelForm):

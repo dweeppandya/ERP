@@ -75,6 +75,11 @@ class Faculty(models.Model):
     doc_profile_pic = models.FileField(upload_to=user_directory_path)
 
 
+class Subject(models.Model):
+    subject_code = models.IntegerField(primary_key=True)
+    subject_name = models.CharField(max_length=100)
+
+
 
 
 
