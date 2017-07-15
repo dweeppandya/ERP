@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from General.models import Year
+from General.models import Year, Division
 
 
 # Create your models here.
@@ -16,6 +16,7 @@ def user_directory_path(instance, filename):
 class StudentMaster(models.Model):
     student = models.OneToOneField(StudentDetails)
     year = models.OneToOneField(Year)
+    division = models.OneToOneField(Division)
 
 
 class StudentDetails(models.Model):
