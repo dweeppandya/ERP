@@ -14,3 +14,9 @@ class Branch(models.Model):
 class Year(models.Model):
     branch = models.ForeignKey(Branch)
     year = models.CharField(max_length=2)
+
+
+class Subject(models.Model):
+    subject_code = models.IntegerField(primary_key=True)
+    subject_name = models.CharField(max_length=100)
+

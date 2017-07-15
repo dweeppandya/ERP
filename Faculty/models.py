@@ -4,9 +4,7 @@ from django.db import models
 # Create your models here.
 
 def user_directory_path(instance, filename):
-    # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
-    # "user_%d" % instance.owner.id, "car_%s" % instance.slug, filename
-    return 'user_{0}/{1}'.format(instance.gr_number, filename)
+    return 'Faculty/{0}/{1}/{2}'.format(instance.branch, instance.faculty_code, filename)
 
 
 
@@ -17,6 +15,8 @@ class Faculty(models.Model):
     middle_name = models.CharField(max_length=100, blank=True)
     last_name = models.CharField(max_length=100)
     DOB = models.DateField(default='1996-02-11')
+
+    faculty_code = models.CharField(max_length=50)
 
     # account details
     salary = models.IntegerField(default=10)
@@ -73,13 +73,5 @@ class Faculty(models.Model):
 
     doc = models.FileField(upload_to=user_directory_path)
     doc_profile_pic = models.FileField(upload_to=user_directory_path)
-
-
-class Subject(models.Model):
-    subject_code = models.IntegerField(primary_key=True)
-    subject_name = models.CharField(max_length=100)
-
-
-
 
 
