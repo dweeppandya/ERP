@@ -1,4 +1,5 @@
-
+from django import forms
+from .models import StudentDetails
 class StudentForm(forms.ModelForm):
     # for field in iter(self.fields):
     #     self.fields[field].widget.attrs.update({
