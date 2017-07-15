@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from General.models import Year, Division
 
 
 # Create your models here.
@@ -9,12 +10,13 @@ from django.db import models
 def user_directory_path(instance, filename):
     # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
     # "user_%d" % instance.owner.id, "car_%s" % instance.slug, filename
-    return 'user_{0}/{1}'.format(instance.gr_number, filename)
+    return 'Student_{0}/{1}/{2}/{3}'.format(instance.branch, instance.year, instance.gr_number, filename)
 
 
 class StudentMaster(models.Model):
     student = models.OneToOneField(StudentDetails)
-    
+    year = models.OneToOneField(Year)
+    division = models.OneToOneField(Division)
 
 
 class StudentDetails(models.Model):
@@ -27,7 +29,7 @@ class StudentDetails(models.Model):
     shift = models.CharField(max_length=1)
     caste_type = models.CharField(max_length=20)
     branch = models.CharField(max_length=50)
-    gr_number = models.AutoField(primary_key=True)
+    gr_number = models.CharField(max_length=10)
 
     # personal details
     email = models.EmailField(max_length=100)

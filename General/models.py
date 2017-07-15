@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from Faculty.models import *
+
 from django.db import models
+from Faculty.models import Faculty
 
 
 # Create your models here.
@@ -22,3 +23,5 @@ class Subject(models.Model):
     faculty = models.ForeignKey(Faculty)
     divsion = models.ForeignKey()
     year = models.ForeignKey(Year)
+class Division(models.Model):
+    division = models.CharField(max_length=2)

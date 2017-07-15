@@ -7,9 +7,6 @@ def user_directory_path(instance, filename):
     return 'Faculty/{0}/{1}/{2}'.format(instance.branch, instance.faculty_code, filename)
 
 
-
-
-
 class Faculty(models.Model):
     first_name = models.CharField(max_length=100)
     middle_name = models.CharField(max_length=100, blank=True)
@@ -73,5 +70,4 @@ class Faculty(models.Model):
 
     doc = models.FileField(upload_to=user_directory_path)
     doc_profile_pic = models.FileField(upload_to=user_directory_path)
-
 
