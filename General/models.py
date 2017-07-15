@@ -8,11 +8,11 @@ from Faculty.models import *
 
 class Branch(models.Model):
     branch_name = models.CharField(max_length=10)
-    HOD = models.OneToOneField(Faculty)
+    HOD = models.OneToOneField(Faculty, on_delete=models.CASCADE)
 
 
 class Year(models.Model):
-    branch = models.ForeignKey(Branch)
+    branch = models.ForeignKey(Branch,  on_delete=models.CASCADE)
     year = models.CharField(max_length=2)
 
 
@@ -23,6 +23,6 @@ class Division(models.Model):
 class Subject(models.Model):
     subject_code = models.IntegerField(primary_key=True)
     subject_name = models.CharField(max_length=100)
-    faculty = models.ForeignKey(Faculty)
-    divsion = models.ForeignKey(Division)
-    year = models.ForeignKey(Year)
+    faculty = models.ForeignKey(Faculty, on_delete=models.CASCADE)
+    divsion = models.ForeignKey(Division, on_delete=models.CASCADE)
+    year = models.ForeignKey(Year, on_delete=models.CASCADE)

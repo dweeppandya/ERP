@@ -89,5 +89,5 @@ class StudentDetails(models.Model):
 
 class StudentMaster(models.Model):
     student = models.OneToOneField(StudentDetails)
-    year = models.ForeignKey(Year)
-    division = models.ForeignKey(Division)
+    year = models.ForeignKey(Year, on_delete=models.CASCADE)
+    division = models.ForeignKey(Division, on_delete=models.CASCADE)

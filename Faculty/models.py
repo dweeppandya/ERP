@@ -13,6 +13,7 @@ class Faculty(models.Model):
     last_name = models.CharField(max_length=100)
     DOB = models.DateField(default='1976-02-11')
 
+
     faculty_code = models.CharField(max_length=50)
 
     # account details
