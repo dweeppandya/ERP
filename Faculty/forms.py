@@ -1,4 +1,5 @@
 from django import forms
+from .models import Faculty
 
 from .validators import file_size_validators
 from .models import StudentDetails
@@ -31,3 +32,13 @@ class StudentForm(forms.ModelForm):
             # 'last_name': forms.TextInput(attrs={'placeholder': 'Last Name'}),
         }
         fields = '__all__'
+
+
+
+class FacultyForm(forms.ModelForm):
+
+    class Meta:
+        model = Faculty
+        fields = { '__all__' }
+
+
