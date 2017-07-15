@@ -80,3 +80,20 @@ class StudentDetails(models.Model):
 
     def __str__(self):
         return self.first_name + ' ' + str(self.pk)
+
+
+class StudentMaster(models.Model):
+    student = models.OneToOneField(StudentDetails)
+
+
+class Branch(models.Model):
+    branch_name = models.CharField(max_length=10)
+    HOD = models.OneToOneField()
+
+
+class Year(models.Model):
+    branch = models.ForeignKey(Branch)
+    year = models.CharField(max_length=2)
+
+
+class Attendance(models.Model):
