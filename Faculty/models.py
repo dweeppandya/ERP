@@ -11,7 +11,7 @@ class Faculty(models.Model):
     first_name = models.CharField(max_length=100)
     middle_name = models.CharField(max_length=100, blank=True)
     last_name = models.CharField(max_length=100)
-    DOB = models.DateField(default='1996-02-11')
+    DOB = models.DateField(default='1976-02-11')
 
     faculty_code = models.CharField(max_length=50)
 
@@ -19,14 +19,14 @@ class Faculty(models.Model):
     salary = models.IntegerField(default=10)
 
     # teaching
-    teaching_experience = models.PositiveIntegerField(default=0)
+    teaching_from = models.PositiveIntegerField(default=0)
     subjects_experience = models.CharField(max_length=250)
     projects = models.TextField(max_length=300)
 
     # personal details
     caste_type = models.CharField(max_length=20)
     email = models.EmailField(max_length=100)
-    mobile = models.BigIntegerField(default="0")
+    mobile = models.BigIntegerField(default=0)
     religion = models.CharField(max_length=20)
     sub_caste = models.CharField(max_length=30)
     handicapped = models.BooleanField(default=0)
@@ -56,18 +56,17 @@ class Faculty(models.Model):
     permanent_address = models.CharField(max_length=100)
     permanent_state = models.CharField(max_length=50)
     permanent_city = models.CharField(max_length=50)
-    permanent_pin_code = models.IntegerField()
+    permanent_pin_code = models.PositiveIntegerField()
     permanent_country = models.CharField(max_length=50)
 
     # current address
     current_address = models.CharField(max_length=100)
     current_state = models.CharField(max_length=50)
     current_city = models.CharField(max_length=50)
-    current_pin_code = models.IntegerField()
+    current_pin_code = models.PositiveIntegerField()
     current_country = models.CharField(max_length=50)
 
     # documents
 
     doc = models.FileField(upload_to=user_directory_path)
     doc_profile_pic = models.FileField(upload_to=user_directory_path)
-
