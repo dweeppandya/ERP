@@ -14,6 +14,7 @@ def user_directory_path(instance, filename):
 
 class StudentMaster(models.Model):
     student = models.OneToOneField(StudentDetails)
+    
 
 
 class StudentDetails(models.Model):
