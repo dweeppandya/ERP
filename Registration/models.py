@@ -85,7 +85,7 @@ class Faculty(models.Model):
 def student_directory_path(instance, filename):
     # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
     # "user_%d" % instance.owner.id, "car_%s" % instance.slug, filename
-    return 'Student_{0}/{1}/{2}/{3}'.format(instance.branch, instance.year, instance.gr_number, filename)
+    return 'Student_{0}/{1}'.format(instance.gr_number, filename)
 
 
 class StudentDetails(models.Model):
