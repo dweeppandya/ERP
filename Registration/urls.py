@@ -1,9 +1,9 @@
-from django.conf.urls import url, include
-from django.contrib import admin
+from django.conf.urls import url
 
 from . import views
 
 urlpatterns = [
-    url(r'^register$', views.register, name='register'),
+    # /register/student - Register Student
+    url(r'^student/$', views.register, name='register'),
 
 ]
