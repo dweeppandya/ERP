@@ -1,7 +1,7 @@
 from django import forms
 
-from .models import StudentDetails
-from .models import Faculty,Subject
+from .models import Faculty, Subject, StudentDetails
+
 
 class StudentForm(forms.ModelForm):
     # for field in iter(self.fields):
@@ -32,14 +32,10 @@ class StudentForm(forms.ModelForm):
         fields = '__all__'
 
 
-
-
-
 class FacultyForm(forms.ModelForm):
     class Meta:
         model = Faculty
         fields = '__all__'
-
 
 
 class SubjectForm(forms.ModelForm):
