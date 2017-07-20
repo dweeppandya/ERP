@@ -68,7 +68,15 @@
         }
 
         #myImg {
-            width: 120px;
+            width: 140px;
+        }
+
+        #input-file {
+            padding-bottom: 15px;
+        }
+
+        #id_doc_profile_pic {
+            display: none;
         }
 
         .input-file {
@@ -77,7 +85,7 @@
     </style>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -97,9 +105,6 @@
         </div>
     </div>
 </nav>
-
-<br>
-<br>
 <br>
 <br>
 <br>
@@ -115,7 +120,8 @@
                 <div class="form-element">
 
                     <div class="input-file">{{ form.doc_profile_pic }}</div>
-                    <img id="myImg" src="http://placehold.it/320x420" alt="Uploaded image is broken"/>
+                    <img id="myImg" src="http://www.ruralagriventures.com/wp-content/uploads/2017/05/man-team.jpg"
+                         alt="Uploaded image is broken"/>
                 </div>
 
 
@@ -192,28 +198,9 @@
 
     <div class="row">
         <fieldset class="col-lg-6">
-            <legend>Emergency contact</legend>
-            <div class="form-element">
-                <label class="control-label">{{ form.emergency_name.label_tag }}</label>
-                <div class="">{{ form.emergency_name }}</div>
-            </div>
-            <div class="form-element">
-                <label class="control-label">{{ form.emergency_mobile.label_tag }}</label>
-                <div class="">{{ form.emergency_mobile }}</div>
-            </div>
-            <div class="form-element">
-                <label class="control-label">{{ form.emergency_relation.label_tag }}</label>
-                <div class="">{{ form.emergency_relation }}</div>
-            </div>
-            <div class="form-element">
-                <label class="control-label">{{ form.emergency_address.label_tag }}</label>
-                <div class="">{{ form.emergency_address }}</div>
-            </div>
-        </fieldset>
-        <fieldset class="col-lg-6">
             <legend>Family</legend>
             <fieldset class="col-lg-6">
-                <legend>Father</legend>
+{#                <legend>Father</legend>#}
                 <div class="form-element">
                     <label class="control-label">{{ form.father_name.label_tag }}</label>
                     <div class="">{{ form.father_name }}</div>
@@ -236,7 +223,7 @@
                 </div>
             </fieldset>
             <fieldset class="col-lg-6">
-                <legend>Mother</legend>
+{#                <legend>Mother</legend>#}
                 <div class="form-element">
                     <label class="control-label">{{ form.mother_name.label_tag }}</label>
                     <div class="">{{ form.mother_name }}</div>
@@ -259,12 +246,31 @@
                 </div>
             </fieldset>
         </fieldset>
+        <fieldset class="col-lg-6">
+            <legend>Emergency contact</legend>
+            <div class="form-element">
+                <label class="control-label">{{ form.emergency_name.label_tag }}</label>
+                <div class="">{{ form.emergency_name }}</div>
+            </div>
+            <div class="form-element">
+                <label class="control-label">{{ form.emergency_mobile.label_tag }}</label>
+                <div class="">{{ form.emergency_mobile }}</div>
+            </div>
+            <div class="form-element">
+                <label class="control-label">{{ form.emergency_relation.label_tag }}</label>
+                <div class="">{{ form.emergency_relation }}</div>
+            </div>
+            <div class="form-element">
+                <label class="control-label">{{ form.emergency_address.label_tag }}</label>
+                <div class="">{{ form.emergency_address }}</div>
+            </div>
+        </fieldset>
     </div>
     <div class="row">
         <fieldset class="col-lg-6">
             <legend>Address</legend>
             <fieldset class="col-lg-6">
-                <legend>Permanent Address</legend>
+{#                <legend>Permanent Address</legend>#}
                 <div class="form-element">
                     <label class="control-label">{{ form.permanent_address.label_tag }}</label>
                     <div class="">{{ form.permanent_address }}</div>
@@ -287,7 +293,7 @@
                 </div>
             </fieldset>
             <fieldset class="col-lg-6">
-                <legend>Current Address</legend>
+{#                <legend>Current Address</legend>#}
                 <div class="form-element">
                     <label class="control-label">{{ form.current_address.label_tag }}</label>
                     <div class="">{{ form.current_address }}</div>
@@ -313,7 +319,7 @@
         <fieldset class="col-lg-6">
             <legend>Exam</legend>
             <fieldset class="col-lg-6">
-                <legend>Exam details</legend>
+{#                <legend>Exam details</legend>#}
                 <div class="form-element">
                     <label class="control-label">{{ form.jee_physics.label_tag }}</label>
                     <div class="">{{ form.jee_physics }}</div>
@@ -344,7 +350,7 @@
                 </div>
             </fieldset>
             <fieldset class="col-lg-6">
-                <legend>Documents</legend>
+{#                <legend>Documents</legend>#}
                 <div class="form-element">
                     <label class="control-label">{{ form.doc_tenth_marksheet.label_tag }}</label>
                     <div class="">{{ form.doc_tenth_marksheet }}</div>
@@ -391,5 +397,14 @@
     function imageIsLoaded(e) {
         $('#myImg').attr('src', e.target.result);
     };
+</script>
+
+<script>
+    $(function () {
+        $("#myImg").on('click', function (e) {
+            e.preventDefault();
+            $("#id_doc_profile_pic:hidden").trigger('click');
+        });
+    });
 </script>
 </html>
