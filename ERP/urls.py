@@ -3,6 +3,7 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^register/', include('Registration.urls')),
+    url(r'^attendance/', include('Attendance.urls')),
     url(r'^admin/', admin.site.urls),
 
 ]
