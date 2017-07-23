@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Student Registration</title>
-
+    {{ form.non_field_errors }}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -109,279 +109,282 @@
 <br>
 <br>
 <br>
-<div class="container">
-    <div class="row">
-        <fieldset class="col-lg-6">
-            <legend>Basic Info:</legend>
+<form action="{% url 'registration:register_student' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="container">
+        <div class="row">
+            <fieldset class="col-lg-6">
+                <legend>Basic Info:</legend>
 
-            <div class="col-lg-6">
+                <div class="col-lg-6">
+
+                    <div class="form-element">
+                        {{ form.doc_profile_pic.errors }}
+                        <div class="input-file">{{ form.doc_profile_pic }}</div>
+                        <img id="myImg" src="http://www.ruralagriventures.com/wp-content/uploads/2017/05/man-team.jpg"
+                             alt="Uploaded image is broken"/>
+                    </div>
 
 
-                <div class="form-element">
-
-                    <div class="input-file">{{ form.doc_profile_pic }}</div>
-                    <img id="myImg" src="http://www.ruralagriventures.com/wp-content/uploads/2017/05/man-team.jpg"
-                         alt="Uploaded image is broken"/>
+                    <div class="form-element">
+                        <label class="control-label">{{ form.first_name.label_tag }}</label>
+                        <div class="">{{ form.first_name }}</div>
+                    </div>
+                    <div class="form-element">
+                        <label class="control-label">{{ form.middle_name.label_tag }}</label>
+                        <div class="">{{ form.middle_name }}</div>
+                    </div>
+                    <div class="form-element">
+                        <label class="control-label">{{ form.last_name.label_tag }}</label>
+                        <div class="">{{ form.last_name }}</div>
+                    </div>
                 </div>
 
+                <div class="col-lg-6">
+                    <div class="form-element">
+                        <label class="control-label">{{ form.DOB.label_tag }}</label>
+                        <div class="">{{ form.DOB }}</div>
+                    </div>
+                    <div class="form-element">
+                        <label class="control-label">{{ form.admission_type.label_tag }}</label>
+                        <div class="">{{ form.admission_type }}</div>
+                    </div>
+                    <div class="form-element">
+                        <label class="control-label">{{ form.shift.label_tag }}</label>
+                        <div class="">{{ form.shift }}</div>
+                    </div>
+                    <div class="form-element">
+                        <label class="control-label">{{ form.caste_type.label_tag }}</label>
+                        <div class="">{{ form.caste_type }}</div>
+                    </div>
+                    <div class="form-element">
+                        <label class="control-label">{{ form.branch.label_tag }}</label>
+                        <div class="">{{ form.branch }}</div>
+                    </div>
+                    <div class="form-element">
+                        <label class="control-label">{{ form.gr_number.label_tag }}</label>
+                        <div class="">{{ form.gr_number }}</div>
+                    </div>
+                </div>
 
+            </fieldset>
+            <fieldset class="col-lg-6">
+                <legend>Personal Detail:</legend>
                 <div class="form-element">
-                    <label class="control-label">{{ form.first_name.label_tag }}</label>
+                    <label class="control-label">{{ form.email.label_tag }}</label>
                     <div class="">{{ form.first_name }}</div>
                 </div>
                 <div class="form-element">
-                    <label class="control-label">{{ form.middle_name.label_tag }}</label>
+                    <label class="control-label">{{ form.mobile.label_tag }}</label>
                     <div class="">{{ form.middle_name }}</div>
                 </div>
                 <div class="form-element">
-                    <label class="control-label">{{ form.last_name.label_tag }}</label>
+                    <label class="control-label">{{ form.religion.label_tag }}</label>
                     <div class="">{{ form.last_name }}</div>
                 </div>
-            </div>
+                <div class="form-element">
+                    <label class="control-label">{{ form.sub_caste.label_tag }}</label>
+                    <div class="">{{ form.first_name }}</div>
+                </div>
+                <div class="form-element">
+                    <label class="control-label">{{ form.handicapped.label_tag }}</label>
+                    <div class="">{{ form.first_name }}</div>
+                </div>
+                <div class="form-element">
+                    <label class="control-label">{{ form.nationality.label_tag }}</label>
+                    <div class="">{{ form.first_name }}</div>
+                </div>
+            </fieldset>
+        </div>
 
-            <div class="col-lg-6">
+        <div class="row">
+            <fieldset class="col-lg-6">
+                <legend>Family</legend>
+                <fieldset class="col-lg-6">
+                    {#                <legend>Father</legend>#}
+                    <div class="form-element">
+                        <label class="control-label">{{ form.father_name.label_tag }}</label>
+                        <div class="">{{ form.father_name }}</div>
+                    </div>
+                    <div class="form-element">
+                        <label class="control-label">{{ form.father_profession.label_tag }}</label>
+                        <div class="">{{ form.father_profession }}</div>
+                    </div>
+                    <div class="form-element">
+                        <label class="control-label">{{ form.father_designation.label_tag }}</label>
+                        <div class="">{{ form.father_designation }}</div>
+                    </div>
+                    <div class="form-element">
+                        <label class="control-label">{{ form.father_mobile.label_tag }}</label>
+                        <div class="">{{ form.father_mobile }}</div>
+                    </div>
+                    <div class="form-element">
+                        <label class="control-label">{{ form.father_email.label_tag }}</label>
+                        <div class="">{{ form.father_email }}</div>
+                    </div>
+                </fieldset>
+                <fieldset class="col-lg-6">
+                    {#                <legend>Mother</legend>#}
+                    <div class="form-element">
+                        <label class="control-label">{{ form.mother_name.label_tag }}</label>
+                        <div class="">{{ form.mother_name }}</div>
+                    </div>
+                    <div class="form-element">
+                        <label class="control-label">{{ form.mother_profession.label_tag }}</label>
+                        <div class="">{{ form.mother_profession }}</div>
+                    </div>
+                    <div class="form-element">
+                        <label class="control-label">{{ form.mother_designation.label_tag }}</label>
+                        <div class="">{{ form.mother_designation }}</div>
+                    </div>
+                    <div class="form-element">
+                        <label class="control-label">{{ form.mother_mobile.label_tag }}</label>
+                        <div class="">{{ form.mother_mobile }}</div>
+                    </div>
+                    <div class="form-element">
+                        <label class="control-label">{{ form.mother_email.label_tag }}</label>
+                        <div class="">{{ form.mother_email }}</div>
+                    </div>
+                </fieldset>
+            </fieldset>
+            <fieldset class="col-lg-6">
+                <legend>Emergency contact</legend>
                 <div class="form-element">
-                    <label class="control-label">{{ form.DOB.label_tag }}</label>
-                    <div class="">{{ form.DOB }}</div>
+                    <label class="control-label">{{ form.emergency_name.label_tag }}</label>
+                    <div class="">{{ form.emergency_name }}</div>
                 </div>
                 <div class="form-element">
-                    <label class="control-label">{{ form.admission_type.label_tag }}</label>
-                    <div class="">{{ form.admission_type }}</div>
+                    <label class="control-label">{{ form.emergency_mobile.label_tag }}</label>
+                    <div class="">{{ form.emergency_mobile }}</div>
                 </div>
                 <div class="form-element">
-                    <label class="control-label">{{ form.shift.label_tag }}</label>
-                    <div class="">{{ form.shift }}</div>
+                    <label class="control-label">{{ form.emergency_relation.label_tag }}</label>
+                    <div class="">{{ form.emergency_relation }}</div>
                 </div>
                 <div class="form-element">
-                    <label class="control-label">{{ form.caste_type.label_tag }}</label>
-                    <div class="">{{ form.caste_type }}</div>
+                    <label class="control-label">{{ form.emergency_address.label_tag }}</label>
+                    <div class="">{{ form.emergency_address }}</div>
                 </div>
-                <div class="form-element">
-                    <label class="control-label">{{ form.branch.label_tag }}</label>
-                    <div class="">{{ form.branch }}</div>
-                </div>
-                <div class="form-element">
-                    <label class="control-label">{{ form.gr_number.label_tag }}</label>
-                    <div class="">{{ form.gr_number }}</div>
-                </div>
-            </div>
+            </fieldset>
+        </div>
+        <div class="row">
+            <fieldset class="col-lg-6">
+                <legend>Address</legend>
+                <fieldset class="col-lg-6">
+                    {#                <legend>Permanent Address</legend>#}
+                    <div class="form-element">
+                        <label class="control-label">{{ form.permanent_address.label_tag }}</label>
+                        <div class="">{{ form.permanent_address }}</div>
+                    </div>
+                    <div class="form-element">
+                        <label class="control-label">{{ form.permanent_state.label_tag }}</label>
+                        <div class="">{{ form.permanent_state }}</div>
+                    </div>
+                    <div class="form-element">
+                        <label class="control-label">{{ form.permanent_city.label_tag }}</label>
+                        <div class="">{{ form.permanent_city }}</div>
+                    </div>
+                    <div class="form-element">
+                        <label class="control-label">{{ form.permanent_pin_code.label_tag }}</label>
+                        <div class="">{{ form.permanent_pin_code }}</div>
+                    </div>
+                    <div class="form-element">
+                        <label class="control-label">{{ form.permanent_country.label_tag }}</label>
+                        <div class="">{{ form.permanent_country }}</div>
+                    </div>
+                </fieldset>
+                <fieldset class="col-lg-6">
+                    {#                <legend>Current Address</legend>#}
+                    <div class="form-element">
+                        <label class="control-label">{{ form.current_address.label_tag }}</label>
+                        <div class="">{{ form.current_address }}</div>
+                    </div>
+                    <div class="form-element">
+                        <label class="control-label">{{ form.current_state.label_tag }}</label>
+                        <div class="">{{ form.current_state }}</div>
+                    </div>
+                    <div class="form-element">
+                        <label class="control-label">{{ form.current_city.label_tag }}</label>
+                        <div class="">{{ form.current_city }}</div>
+                    </div>
+                    <div class="form-element">
+                        <label class="control-label">{{ form.current_pin_code.label_tag }}</label>
+                        <div class="">{{ form.current_pin_code }}</div>
+                    </div>
+                    <div class="form-element">
+                        <label class="control-label">{{ form.current_country.label_tag }}</label>
+                        <div class="">{{ form.current_country }}</div>
+                    </div>
+                </fieldset>
+            </fieldset>
+            <fieldset class="col-lg-6">
+                <legend>Exam</legend>
+                <fieldset class="col-lg-6">
+                    {#                <legend>Exam details</legend>#}
+                    <div class="form-element">
+                        <label class="control-label">{{ form.jee_physics.label_tag }}</label>
+                        <div class="">{{ form.jee_physics }}</div>
+                    </div>
+                    <div class="form-element">
+                        <label class="control-label">{{ form.jee_maths.label_tag }}</label>
+                        <div class="">{{ form.jee_maths }}</div>
+                    </div>
+                    <div class="form-element">
+                        <label class="control-label">{{ form.jee_chemistry.label_tag }}</label>
+                        <div class="">{{ form.jee_chemistry }}</div>
+                    </div>
+                    <div class="form-element">
+                        <label class="control-label">{{ form.jee_total.label_tag }}</label>
+                        <div class="">{{ form.jee_total }}</div>
+                    </div>
+                    <div class="form-element">
+                        <label class="control-label">{{ form.jee_max_physics.label_tag }}</label>
+                        <div class="">{{ form.jee_max_physics }}</div>
+                    </div>
+                    <div class="form-element">
+                        <label class="control-label">{{ form.jee_max_maths.label_tag }}</label>
+                        <div class="">{{ form.jee_max_maths }}</div>
+                    </div>
+                    <div class="form-element">
+                        <label class="control-label">{{ form.jee_max_chemistry.label_tag }}</label>
+                        <div class="">{{ form.jee_max_chemistry }}</div>
+                    </div>
+                </fieldset>
+                <fieldset class="col-lg-6">
+                    {#                <legend>Documents</legend>#}
+                    <div class="form-element">
+                        <label class="control-label">{{ form.doc_tenth_marksheet.label_tag }}</label>
+                        <div class="">{{ form.doc_tenth_marksheet }}</div>
+                    </div>
+                    <div class="form-element">
+                        <label class="control-label">{{ form.doc_twelfth_marksheet.label_tag }}</label>
+                        <div class="">{{ form.doc_twelfth_marksheet }}</div>
+                    </div>
+                    <div class="form-element">
+                        <label class="control-label">{{ form.doc_jee_marksheet.label_tag }}</label>
+                        <div class="">{{ form.doc_jee_marksheet }}</div>
+                    </div>
+                    <div class="form-element">
 
-        </fieldset>
-        <fieldset class="col-lg-6">
-            <legend>Personal Detail:</legend>
-            <div class="form-element">
-                <label class="control-label">{{ form.email.label_tag }}</label>
-                <div class="">{{ form.first_name }}</div>
-            </div>
-            <div class="form-element">
-                <label class="control-label">{{ form.mobile.label_tag }}</label>
-                <div class="">{{ form.middle_name }}</div>
-            </div>
-            <div class="form-element">
-                <label class="control-label">{{ form.religion.label_tag }}</label>
-                <div class="">{{ form.last_name }}</div>
-            </div>
-            <div class="form-element">
-                <label class="control-label">{{ form.sub_caste.label_tag }}</label>
-                <div class="">{{ form.first_name }}</div>
-            </div>
-            <div class="form-element">
-                <label class="control-label">{{ form.handicapped.label_tag }}</label>
-                <div class="">{{ form.first_name }}</div>
-            </div>
-            <div class="form-element">
-                <label class="control-label">{{ form.nationality.label_tag }}</label>
-                <div class="">{{ form.first_name }}</div>
-            </div>
-        </fieldset>
+                    </div>
+
+                </fieldset>
+            </fieldset>
+        </div>
+        <div class="row">
+            <div class="col-lg-2 col-lg-offset-5"><button type="submit" class="btn btn-primary" name="submit" value="submit">Register</button></div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+
     </div>
-
-    <div class="row">
-        <fieldset class="col-lg-6">
-            <legend>Family</legend>
-            <fieldset class="col-lg-6">
-{#                <legend>Father</legend>#}
-                <div class="form-element">
-                    <label class="control-label">{{ form.father_name.label_tag }}</label>
-                    <div class="">{{ form.father_name }}</div>
-                </div>
-                <div class="form-element">
-                    <label class="control-label">{{ form.father_profession.label_tag }}</label>
-                    <div class="">{{ form.father_profession }}</div>
-                </div>
-                <div class="form-element">
-                    <label class="control-label">{{ form.father_designation.label_tag }}</label>
-                    <div class="">{{ form.father_designation }}</div>
-                </div>
-                <div class="form-element">
-                    <label class="control-label">{{ form.father_mobile.label_tag }}</label>
-                    <div class="">{{ form.father_mobile }}</div>
-                </div>
-                <div class="form-element">
-                    <label class="control-label">{{ form.father_email.label_tag }}</label>
-                    <div class="">{{ form.father_email }}</div>
-                </div>
-            </fieldset>
-            <fieldset class="col-lg-6">
-{#                <legend>Mother</legend>#}
-                <div class="form-element">
-                    <label class="control-label">{{ form.mother_name.label_tag }}</label>
-                    <div class="">{{ form.mother_name }}</div>
-                </div>
-                <div class="form-element">
-                    <label class="control-label">{{ form.mother_profession.label_tag }}</label>
-                    <div class="">{{ form.mother_profession }}</div>
-                </div>
-                <div class="form-element">
-                    <label class="control-label">{{ form.mother_designation.label_tag }}</label>
-                    <div class="">{{ form.mother_designation }}</div>
-                </div>
-                <div class="form-element">
-                    <label class="control-label">{{ form.mother_mobile.label_tag }}</label>
-                    <div class="">{{ form.mother_mobile }}</div>
-                </div>
-                <div class="form-element">
-                    <label class="control-label">{{ form.mother_email.label_tag }}</label>
-                    <div class="">{{ form.mother_email }}</div>
-                </div>
-            </fieldset>
-        </fieldset>
-        <fieldset class="col-lg-6">
-            <legend>Emergency contact</legend>
-            <div class="form-element">
-                <label class="control-label">{{ form.emergency_name.label_tag }}</label>
-                <div class="">{{ form.emergency_name }}</div>
-            </div>
-            <div class="form-element">
-                <label class="control-label">{{ form.emergency_mobile.label_tag }}</label>
-                <div class="">{{ form.emergency_mobile }}</div>
-            </div>
-            <div class="form-element">
-                <label class="control-label">{{ form.emergency_relation.label_tag }}</label>
-                <div class="">{{ form.emergency_relation }}</div>
-            </div>
-            <div class="form-element">
-                <label class="control-label">{{ form.emergency_address.label_tag }}</label>
-                <div class="">{{ form.emergency_address }}</div>
-            </div>
-        </fieldset>
-    </div>
-    <div class="row">
-        <fieldset class="col-lg-6">
-            <legend>Address</legend>
-            <fieldset class="col-lg-6">
-{#                <legend>Permanent Address</legend>#}
-                <div class="form-element">
-                    <label class="control-label">{{ form.permanent_address.label_tag }}</label>
-                    <div class="">{{ form.permanent_address }}</div>
-                </div>
-                <div class="form-element">
-                    <label class="control-label">{{ form.permanent_state.label_tag }}</label>
-                    <div class="">{{ form.permanent_state }}</div>
-                </div>
-                <div class="form-element">
-                    <label class="control-label">{{ form.permanent_city.label_tag }}</label>
-                    <div class="">{{ form.permanent_city }}</div>
-                </div>
-                <div class="form-element">
-                    <label class="control-label">{{ form.permanent_pin_code.label_tag }}</label>
-                    <div class="">{{ form.permanent_pin_code }}</div>
-                </div>
-                <div class="form-element">
-                    <label class="control-label">{{ form.permanent_country.label_tag }}</label>
-                    <div class="">{{ form.permanent_country }}</div>
-                </div>
-            </fieldset>
-            <fieldset class="col-lg-6">
-{#                <legend>Current Address</legend>#}
-                <div class="form-element">
-                    <label class="control-label">{{ form.current_address.label_tag }}</label>
-                    <div class="">{{ form.current_address }}</div>
-                </div>
-                <div class="form-element">
-                    <label class="control-label">{{ form.current_state.label_tag }}</label>
-                    <div class="">{{ form.current_state }}</div>
-                </div>
-                <div class="form-element">
-                    <label class="control-label">{{ form.current_city.label_tag }}</label>
-                    <div class="">{{ form.current_city }}</div>
-                </div>
-                <div class="form-element">
-                    <label class="control-label">{{ form.current_pin_code.label_tag }}</label>
-                    <div class="">{{ form.current_pin_code }}</div>
-                </div>
-                <div class="form-element">
-                    <label class="control-label">{{ form.current_country.label_tag }}</label>
-                    <div class="">{{ form.current_country }}</div>
-                </div>
-            </fieldset>
-        </fieldset>
-        <fieldset class="col-lg-6">
-            <legend>Exam</legend>
-            <fieldset class="col-lg-6">
-{#                <legend>Exam details</legend>#}
-                <div class="form-element">
-                    <label class="control-label">{{ form.jee_physics.label_tag }}</label>
-                    <div class="">{{ form.jee_physics }}</div>
-                </div>
-                <div class="form-element">
-                    <label class="control-label">{{ form.jee_maths.label_tag }}</label>
-                    <div class="">{{ form.jee_maths }}</div>
-                </div>
-                <div class="form-element">
-                    <label class="control-label">{{ form.jee_chemistry.label_tag }}</label>
-                    <div class="">{{ form.jee_chemistry }}</div>
-                </div>
-                <div class="form-element">
-                    <label class="control-label">{{ form.jee_total.label_tag }}</label>
-                    <div class="">{{ form.jee_total }}</div>
-                </div>
-                <div class="form-element">
-                    <label class="control-label">{{ form.jee_max_physics.label_tag }}</label>
-                    <div class="">{{ form.jee_max_physics }}</div>
-                </div>
-                <div class="form-element">
-                    <label class="control-label">{{ form.jee_max_maths.label_tag }}</label>
-                    <div class="">{{ form.jee_max_maths }}</div>
-                </div>
-                <div class="form-element">
-                    <label class="control-label">{{ form.jee_max_chemistry.label_tag }}</label>
-                    <div class="">{{ form.jee_max_chemistry }}</div>
-                </div>
-            </fieldset>
-            <fieldset class="col-lg-6">
-{#                <legend>Documents</legend>#}
-                <div class="form-element">
-                    <label class="control-label">{{ form.doc_tenth_marksheet.label_tag }}</label>
-                    <div class="">{{ form.doc_tenth_marksheet }}</div>
-                </div>
-                <div class="form-element">
-                    <label class="control-label">{{ form.doc_twelfth_marksheet.label_tag }}</label>
-                    <div class="">{{ form.doc_twelfth_marksheet }}</div>
-                </div>
-                <div class="form-element">
-                    <label class="control-label">{{ form.doc_jee_marksheet.label_tag }}</label>
-                    <div class="">{{ form.doc_jee_marksheet }}</div>
-                </div>
-                <div class="form-element">
-                    <label class="control-label">{{ form.doc_profile_pic.label_tag }}</label>
-                    <div class="">{{ form.doc_profile_pic }}</div>
-                </div>
-
-            </fieldset>
-        </fieldset>
-    </div>
-
-</div>
-<br>
-<br>
-<br>
-<br>
-
+</form>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"#}
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"#}
         crossorigin="anonymous"></script>
 <script>
     $(function () {
@@ -396,7 +399,7 @@
 
     function imageIsLoaded(e) {
         $('#myImg').attr('src', e.target.result);
-    };
+    }
 </script>
 
 <script>

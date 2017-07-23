@@ -2,6 +2,8 @@ from django.conf.urls import url
 
 from . import views
 
+app_name = 'registration'
+
 urlpatterns = [
     # /register/student - Register Student
     url(r'^student/$', views.register_student, name='register_student'),
