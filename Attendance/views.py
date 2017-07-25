@@ -18,9 +18,13 @@ def index(request):
 def save(request):
     if request.method == 'POST':
         print("Saving customers")
-        all_students = StudentDetails.objects.all().values_list('id')
+        # print(request.POST.get)
+        # all_students = StudentDetails.objects.all().values_list('id')
         for i in request.POST:
-            print(i)
+            if i!='csrfmiddlewaretoken':
+                print(i)
+
+            # if i!=
     else:
         print("Not here because of post")
     return HttpResponse("Here")

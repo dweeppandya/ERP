@@ -61,7 +61,8 @@
             width: 50px;
             height: 50px;
             position: relative;
-            z-index: 0;background: rgb(186, 188, 182);
+            z-index: 0;
+            background: rgb(186, 188, 182);
 
         }
 
@@ -128,7 +129,8 @@
         </div>
     </div>
 </nav>
-<form action="{% url 'attendance:save' %}">
+<form action="{% url 'attendance:save' %}" method="post">
+    {% csrf_token %}
     <div class="container">
 
         <div class="row">
@@ -139,7 +141,7 @@
                         <div class="squaredOne">
                             <input type="checkbox" value="asd{{ forloop.counter }}"
                                    id="squaredOne{{ forloop.counter }}"
-                                   name="check{{ forloop.counter }}"/>
+                                   name="{{ i.gr_number }}"/>
                             <label for="squaredOne{{ forloop.counter }}">{{ forloop.counter }}</label>
                         </div>
                         <!-- end .squaredOne -->

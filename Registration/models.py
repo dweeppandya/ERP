@@ -20,7 +20,7 @@ class Faculty(models.Model):
     last_name = models.CharField(max_length=100)
     DOB = models.DateField(default='1976-02-11')
 
-    faculty_code = models.CharField(max_length=50, primary_key=True)
+    faculty_code = models.AutoField(max_length=50, primary_key=True)
 
     # account details
     salary = models.IntegerField(default=10)
@@ -98,15 +98,15 @@ class StudentDetails(models.Model):
     shift = models.CharField(max_length=1)
     caste_type = models.CharField(max_length=20)
     branch = models.CharField(max_length=50)
-    gr_number = models.CharField(max_length=10)
+    gr_number = models.CharField(max_length=10, primary_key=True)
 
     # personal details
-    email = models.EmailField(max_length=100,null=True)
-    mobile = models.BigIntegerField(default=0,null=True)
-    religion = models.CharField(max_length=20,null=True)
-    sub_caste = models.CharField(max_length=30,null=True)
+    email = models.EmailField(max_length=100, null=True)
+    mobile = models.BigIntegerField(default=0, null=True)
+    religion = models.CharField(max_length=20, null=True)
+    sub_caste = models.CharField(max_length=30, null=True)
     handicapped = models.BooleanField(default=0)
-    nationality = models.CharField(max_length=50,null=True)
+    nationality = models.CharField(max_length=50, null=True)
 
     # family
     # father
