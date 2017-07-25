@@ -108,12 +108,6 @@ class StudentDetails(models.Model):
     handicapped = models.BooleanField(default=0)
     nationality = models.CharField(max_length=50,null=True)
 
-    # emergency contact
-    emergency_name = models.CharField(max_length=50)
-    emergency_mobile = models.BigIntegerField()
-    emergency_relation = models.CharField(max_length=50)
-    emergency_address = models.CharField(max_length=100)
-
     # family
     # father
     father_name = models.CharField(max_length=50)
@@ -121,12 +115,19 @@ class StudentDetails(models.Model):
     father_designation = models.CharField(max_length=30)
     father_mobile = models.BigIntegerField(default=0)
     father_email = models.EmailField()
+
     # mother
     mother_name = models.CharField(max_length=50)
     mother_profession = models.CharField(max_length=30)
     mother_designation = models.CharField(max_length=30)
     mother_mobile = models.BigIntegerField(default=0)
     mother_email = models.EmailField(null=True)
+
+    # emergency contact
+    emergency_name = models.CharField(max_length=50)
+    emergency_mobile = models.BigIntegerField()
+    emergency_relation = models.CharField(max_length=50)
+    emergency_address = models.CharField(max_length=100)
 
     # permanent address
     permanent_address = models.CharField(max_length=100)
