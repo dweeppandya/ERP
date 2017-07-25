@@ -8,7 +8,7 @@ class StudentForm(forms.ModelForm):
     #     self.fields[field].widget.attrs.update({
     #         'class': 'form-control'
     #     })
-    country = forms.ChoiceField(
+    current_country = forms.ChoiceField(
         choices=countries
     )
 
