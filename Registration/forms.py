@@ -1,17 +1,19 @@
 from django import forms
 
-from .models import Faculty, Subject, StudentDetails
 from Configuration.countryConf import countries
+from .models import Faculty, Subject, StudentDetails
+
 
 class StudentForm(forms.ModelForm):
     # for field in iter(self.fields):
     #     self.fields[field].widget.attrs.update({
     #         'class': 'form-control'
     #     })
-    country = forms.ChoiceField(
+    current_country = forms.ChoiceField(
         choices=countries
     )
-
+    widgets = {
+        'DOB': forms.DateInput(attrs={'class': 'datepicker'})}
     branch = forms.ChoiceField(
         choices=[('Computer', 'Computer'), ('IT', 'IT'), ('EnTC', 'EnTC'), ('Mechanical', 'Mechanical'),
                  ('Civil', 'Civil')])
@@ -28,9 +30,6 @@ class StudentForm(forms.ModelForm):
 
         widgets = {
             'DOB': forms.DateInput(attrs={'class': 'datepicker'}),
-            # 'first_name': forms.TextInput(attrs={'placeholder': 'First Name'}),
-            # 'middle_name': forms.TextInput(attrs={'placeholder': 'Middle Name'}),
-            # 'last_name': forms.TextInput(attrs={'placeholder': 'Last Name'}),
         }
         fields = '__all__'
 

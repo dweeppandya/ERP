@@ -36,7 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Registration.apps.RegistrationConfig',
-    'Attendance.apps.AttendanceConfig'
+    'Attendance.apps.AttendanceConfig',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [

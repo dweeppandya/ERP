@@ -3,7 +3,6 @@ from __future__ import unicode_literals
 
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.shortcuts import render, HttpResponse
 
 from .forms import StudentForm, FacultyForm, SubjectForm
 
@@ -15,10 +14,12 @@ def register_student(request):
         if form.is_valid():
             print("Valid")
             form.save()
-            return HttpResponse(form.errors)
+            return HttpResponseRedirect('/register/student/')
+            # return HttpResponse(form.errors)
         else:
             print(form.errors)
-            return HttpResponse(form.errors)
+            # return HttpResponse(form.errors)
+        return render(request, "register_student.html", {'form': form})
     else:
         print("not POST")
         form = StudentForm()
