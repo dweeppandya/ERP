@@ -101,12 +101,12 @@ class StudentDetails(models.Model):
     gr_number = models.CharField(max_length=10)
 
     # personal details
-    email = models.EmailField(max_length=100)
-    mobile = models.BigIntegerField(default=0)
-    religion = models.CharField(max_length=20)
-    sub_caste = models.CharField(max_length=30)
+    email = models.EmailField(max_length=100,null=True)
+    mobile = models.BigIntegerField(default=0,null=True)
+    religion = models.CharField(max_length=20,null=True)
+    sub_caste = models.CharField(max_length=30,null=True)
     handicapped = models.BooleanField(default=0)
-    nationality = models.CharField(max_length=50)
+    nationality = models.CharField(max_length=50,null=True)
 
     # emergency contact
     emergency_name = models.CharField(max_length=50)
