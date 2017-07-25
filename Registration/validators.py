@@ -1,4 +1,4 @@
- from django.core.exceptions import ValidationError
+from django.core.exceptions import ValidationError
 
 
 def file_size_validators(value):  # add this to some file where you can import it from
