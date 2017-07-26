@@ -55,6 +55,13 @@ class FacultyForm(forms.ModelForm):
 
 
 class SubjectForm(forms.ModelForm):
+    branch = forms.ChoiceField(
+        choices=[('Computer', 'Computer'), ('IT', 'IT'), ('EnTC', 'EnTC'), ('Mechanical', 'Mechanical'),
+                 ('Civil', 'Civil')])
+    year = forms.ChoiceField(
+        choices=[('FE', 'FE'), ('SE', 'SE'), ('TE', 'TE'), ('BE', 'BE'), ]
+    )
+
     class Meta:
         model = Subject
         fields = '__all__'
