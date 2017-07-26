@@ -25,7 +25,8 @@ class StudentAttendance(models.Model):
     student = models.ForeignKey(StudentDetails, on_delete=models.CASCADE)
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
     division = models.CharField(max_length=1)
-
+    def __str__(self):
+        return self.student.first_name + self.division + self.subject.subject_name
 
 class DailyAttendance(models.Model):
     date = models.DateField()
