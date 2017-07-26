@@ -17,7 +17,7 @@ def index(request):
 
 def save(request):
     if request.method == 'POST':
-        print("Saving customers")
+        print("Saving Student")
         # print(request.POST.get)
         # all_students = StudentDetails.objects.all().values_list('id')
         for i in request.POST:
