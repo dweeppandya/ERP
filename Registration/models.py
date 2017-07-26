@@ -10,7 +10,7 @@ from django.db import models
 # Subject (Entity)
 
 def faculty_directory_path(instance, filename):
-    return 'Faculty/{0}/{1}'.format(instance.faculty_code, filename)
+    return 'Media/Faculty/{0}/{1}'.format(instance.faculty_code, filename)
 
 
 # Create your models here.
@@ -85,7 +85,7 @@ class Faculty(models.Model):
 def student_directory_path(instance, filename):
     # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
     # "user_%d" % instance.owner.id, "car_%s" % instance.slug, filename
-    return 'Student_{0}/{1}'.format(instance.gr_number, filename)
+    return 'Media/Student/Student_{0}/{1}'.format(instance.gr_number, filename)
 
 
 class StudentDetails(models.Model):
