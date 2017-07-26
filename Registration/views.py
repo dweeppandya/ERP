@@ -47,6 +47,20 @@ def register_faculty(request):
 
 
 def register_subject(request):
-    form = SubjectForm()
+    if request.method == "POST":
+        print("Register subject post")
+        form = SubjectForm(request.POST, request.FILES)
+        if form.is_valid():
+            print("Valid")
+            form.save()
+            return HttpResponseRedirect('/register/subject/')
+            # return HttpResponse(form.errors)
+        else:
+            print(form.errors)
+            # return HttpResponse(form.errors)
+        return render(request, "register_subject.html", {'form': form})
+    else:
+        print("Register subject not POST")
+        form = SubjectForm()
 
     return render(request, "register_subject.html", {'form': form})
