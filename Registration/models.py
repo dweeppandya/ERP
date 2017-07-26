@@ -98,7 +98,7 @@ class StudentDetails(models.Model):
     shift = models.CharField(max_length=1)
     caste_type = models.CharField(max_length=20)
     branch = models.CharField(max_length=50)
-    gr_number = models.CharField(max_length=10, primary_key=True)
+    gr_number = models.AutoField(max_length=10, primary_key=True)
 
     # personal details
     email = models.EmailField(max_length=100, null=True)
