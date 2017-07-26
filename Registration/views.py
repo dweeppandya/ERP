@@ -9,7 +9,7 @@ from .forms import StudentForm, FacultyForm, SubjectForm
 
 def register_student(request):
     if request.method == "POST":
-        print("POST")
+        print("Register student post")
         form = StudentForm(request.POST, request.FILES)
         if form.is_valid():
             print("Valid")
@@ -21,13 +21,27 @@ def register_student(request):
             # return HttpResponse(form.errors)
         return render(request, "register_student.html", {'form': form})
     else:
-        print("not POST")
+        print("Register student not POST")
         form = StudentForm()
         return render(request, "register_student.html", {'form': form})
 
 
 def register_faculty(request):
-    form = FacultyForm()
+    if request.method == "POST":
+        print("Register faculty post")
+        form = FacultyForm(request.POST, request.FILES)
+        if form.is_valid():
+            print("Valid")
+            form.save()
+            return HttpResponseRedirect('/register/faculty/')
+            # return HttpResponse(form.errors)
+        else:
+            print(form.errors)
+            # return HttpResponse(form.errors)
+        return render(request, "register_faculty.html", {'form': form})
+    else:
+        print("Register faculty not POST")
+        form = FacultyForm()
 
     return render(request, "register_faculty.html", {'form': form})
 

@@ -39,6 +39,7 @@ class FacultyForm(forms.ModelForm):
         model = Faculty
         widgets = {
             'DOB': forms.DateInput(attrs={'class': 'datepicker'}),
+            'teaching_from':forms.DateInput(attrs={'class':'datepicker'})
         }
         fields = '__all__'
 
