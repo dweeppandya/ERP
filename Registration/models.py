@@ -170,3 +170,5 @@ class Subject(models.Model):
 
     def __str__(self):
         return str(self.subject_code) + ' ' + self.subject_name
+
+
