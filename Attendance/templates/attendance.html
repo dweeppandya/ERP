@@ -63,11 +63,7 @@
             position: relative;
             z-index: 0;
             background: rgb(186, 188, 182);
-<<<<<<< HEAD
             color: white;
-=======
-
->>>>>>> 7243725aa52d1d81d17e9b28d174e67d64395357
         }
 
         .squaredOne label {
@@ -133,17 +129,16 @@
         </div>
     </div>
 </nav>
-<<<<<<< HEAD
-=======
+<div class="container">
+    <div class="col-md-1" style="text-align: center">
+        <button class="btn btn-info " value="togle" onclick="selectAll()" id="toggle">Select all</button>
+
+    </div>
+</div>
 <form action="{% url 'attendance:save' %}" method="post">
     {% csrf_token %}
-    <div class="container">
->>>>>>> 7243725aa52d1d81d17e9b28d174e67d64395357
 
-<div class="container">
-    <button class="btn btn-info " value="togle" onclick="selectAll()" id="toggle">Select all</button>
-</div>
-<form action="      ">
+
     <div class="container">
         <div class="row">
             {% for i in all_students %}
@@ -162,9 +157,22 @@
             {% endfor %}
         </div>
     </div>
+
     <div class="container" style="text-align: right">
-        <input type="submit" class="btn btn-success" value="Save">
+
+        <div class="row" style="text-align: center">
+            <select class="btn btn-info " name="subject">
+                <datalist>
+                    {% for subject in all_subjects %}
+                    <option>Subjects</option>
+                    <option>ASD</option>
+                </datalist>
+            </select>
+
+            <input type="submit" class="btn btn-success" value="Save">
+        </div>
     </div>
+
 
 </form>
 </body>
