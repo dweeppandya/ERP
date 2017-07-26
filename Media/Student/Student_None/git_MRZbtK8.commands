@@ -1,0 +1,6 @@
+git add -A
+git commit -m "message"
+git push
+export PS1="\u > "
+cd Desktop/Project/SPPU-Codes/Bachelor\ of\ Science\(Computer\)/SYBSC\(CompSci\)/Ds\ using\ c\ and\ Opps\ using\ c++/
+

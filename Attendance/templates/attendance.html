@@ -64,7 +64,6 @@
             z-index: 0;
             background: rgb(186, 188, 182);
             color: white;
-
         }
 
         .squaredOne label {
@@ -130,12 +129,16 @@
         </div>
     </div>
 </nav>
+<div class="container">
+    <div class="col-md-1" style="text-align: center">
+        <button class="btn btn-info " value="togle" onclick="selectAll()" id="toggle">Select all</button>
 
+    </div>
+</div>
 <form action="{% url 'attendance:save' %}" method="post">
     {% csrf_token %}
-    <div class="container">
-        <button class="btn btn-info " value="togle" onclick="selectAll()" id="toggle">Select all</button>
-    </div>
+
+
     <div class="container">
         <div class="row">
             {% for i in all_students %}
@@ -143,9 +146,9 @@
                     <section>
                         <!-- .squaredOne -->
                         <div class="squaredOne">
-                            <input class="cb" type="checkbox" value="{{ i.gr_number}}"
+                            <input class="cb" type="checkbox" value="{{ i }}"
                                    id="squaredOne{{ forloop.counter }}"
-                                   name="present"/>
+                                   name="present    "/>
                             <label for="squaredOne{{ forloop.counter }}">{{ forloop.counter }}</label>
                         </div>
                         <!-- end .squaredOne -->
@@ -154,9 +157,34 @@
             {% endfor %}
         </div>
     </div>
+
     <div class="container" style="text-align: right">
+
+        <div class="row" style="text-align: center">
+            <label for="subject">Select subjects</label>
+            <select id="subject" class="btn btn-info " name="subject">
+                <datalist>
+                    {% for subject in all_subjects %}
+                        <option>{{ subject }}</option>
+                    {% endfor %}
+                </datalist>
+            </select>
+            <label for="subject">Select Division</label>
+            <select id="division" class="btn btn-info ">
+                <datalist>
+                    <option>A</option>
+
+                    <option>B</option>
+
+                    <option>C</option>
+                </datalist>
+            </select>
+        </div>
+    <div class="row">
         <input type="submit" class="btn btn-success" value="Save">
     </div>
+    </div>
+
 
 </form>
 </body>
