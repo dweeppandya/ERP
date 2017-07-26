@@ -146,9 +146,9 @@
                     <section>
                         <!-- .squaredOne -->
                         <div class="squaredOne">
-                            <input class="cb" type="checkbox" value="asd{{ forloop.counter }}"
+                            <input class="cb" type="checkbox" value="{{ i }}"
                                    id="squaredOne{{ forloop.counter }}"
-                                   name="{{ i.gr_number }}"/>
+                                   name="present    "/>
                             <label for="squaredOne{{ forloop.counter }}">{{ forloop.counter }}</label>
                         </div>
                         <!-- end .squaredOne -->
@@ -161,16 +161,28 @@
     <div class="container" style="text-align: right">
 
         <div class="row" style="text-align: center">
-            <select class="btn btn-info " name="subject">
+            <label for="subject">Select subjects</label>
+            <select id="subject" class="btn btn-info " name="subject">
                 <datalist>
                     {% for subject in all_subjects %}
-                    <option>Subjects</option>
-                    <option>ASD</option>
+                        <option>{{ subject }}</option>
+                    {% endfor %}
                 </datalist>
             </select>
+            <label for="subject">Select Division</label>
+            <select id="division" class="btn btn-info ">
+                <datalist>
+                    <option>A</option>
 
-            <input type="submit" class="btn btn-success" value="Save">
+                    <option>B</option>
+
+                    <option>C</option>
+                </datalist>
+            </select>
         </div>
+    <div class="row">
+        <input type="submit" class="btn btn-success" value="Save">
+    </div>
     </div>
 
 
