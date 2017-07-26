@@ -12,6 +12,9 @@ class StudentForm(forms.ModelForm):
     current_country = forms.ChoiceField(
         choices=countries
     )
+    permanent_country = forms.ChoiceField(
+        choices=countries
+    )
     widgets = {
         'DOB': forms.DateInput(attrs={'class': 'datepicker'})}
     branch = forms.ChoiceField(
@@ -35,11 +38,18 @@ class StudentForm(forms.ModelForm):
 
 
 class FacultyForm(forms.ModelForm):
+    permanent_country = forms.ChoiceField(
+        choices=countries
+    )
+    current_country = forms.ChoiceField(
+        choices=countries
+    )
+
     class Meta:
         model = Faculty
         widgets = {
             'DOB': forms.DateInput(attrs={'class': 'datepicker'}),
-            'teaching_from':forms.DateInput(attrs={'class':'datepicker'})
+            'teaching_from': forms.DateInput(attrs={'class': 'datepicker'})
         }
         fields = '__all__'
 

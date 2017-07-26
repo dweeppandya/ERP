@@ -159,11 +159,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="form-element">
-                        <span class="error">{{ form.faculty_code.errors }}</span>
-                        <label class="control-label">{{ form.faculty_code.label_tag }}</label>
-                        <div class="">{{ form.faculty_code }}</div>
-                    </div>
+                   
                     <div class="form-element">
                         <span class="error">{{ form.salary.errors }}</span>
                         <label class="control-label">{{ form.salary.label_tag }}</label>
@@ -227,29 +223,6 @@
         </div>
         <div class="row">
             <fieldset class="col-lg-6">
-                <legend>Emergency Contact</legend>
-                <div class="form-element">
-                    <span class="error">{{ form.emergency_name.errors }}</span>
-                    <label class="control-label">{{ form.emergency_name.label_tag }}</label>
-                    <div class="">{{ form.emergency_name }}</div>
-                </div>
-                <div class="form-element">
-                    <span class="error">{{ form.emergency_mobile.errors }}</span>
-                    <label class="control-label">{{ form.emergency_mobile.label_tag }}</label>
-                    <div class="">{{ form.emergency_mobile }}</div>
-                </div>
-                <div class="form-element">
-                    <span class="error">{{ form.emergency_relation.errors }}</span>
-                    <label class="control-label">{{ form.emergency_relation.label_tag }}</label>
-                    <div class="">{{ form.emergency_relation }}</div>
-                </div>
-                <div class="form-element">
-                    <span class="error">{{ form.emergency_address.errors }}</span>
-                    <label class="control-label">{{ form.emergency_address.label_tag }}</label>
-                    <div class="">{{ form.emergency_address }}</div>
-                </div>
-            </fieldset>
-            <fieldset class="col-lg-6">
                 <legend>Family</legend>
                 <div class="col-lg-6">
                     <div class="form-element">
@@ -304,6 +277,29 @@
                         <label class="control-label">{{ form.mother_email.label_tag }}</label>
                         <div class="">{{ form.mother_email }}</div>
                     </div>
+                </div>
+            </fieldset>
+            <fieldset class="col-lg-6">
+                <legend>Emergency Contact</legend>
+                <div class="form-element">
+                    <span class="error">{{ form.emergency_name.errors }}</span>
+                    <label class="control-label">{{ form.emergency_name.label_tag }}</label>
+                    <div class="">{{ form.emergency_name }}</div>
+                </div>
+                <div class="form-element">
+                    <span class="error">{{ form.emergency_mobile.errors }}</span>
+                    <label class="control-label">{{ form.emergency_mobile.label_tag }}</label>
+                    <div class="">{{ form.emergency_mobile }}</div>
+                </div>
+                <div class="form-element">
+                    <span class="error">{{ form.emergency_relation.errors }}</span>
+                    <label class="control-label">{{ form.emergency_relation.label_tag }}</label>
+                    <div class="">{{ form.emergency_relation }}</div>
+                </div>
+                <div class="form-element">
+                    <span class="error">{{ form.emergency_address.errors }}</span>
+                    <label class="control-label">{{ form.emergency_address.label_tag }}</label>
+                    <div class="">{{ form.emergency_address }}</div>
                 </div>
             </fieldset>
         </div>
