@@ -112,20 +112,37 @@
 <br>
 <br>
 <br>
+<form method="post" action="{% url 'registration:register_subject' %}">
+    {% csrf_token %}
 <div class="container">
     <fieldset>
         <legend>Register a subjects</legend>
         <div class="form-element">
+                <span class="error">{{ form.subject_code.errors }}</span>
             <label class="control-label">{{ form.subject_code.label_tag }}</label>
             <div class="">{{ form.subject_code }}</div>
         </div>
         <div class="form-element">
+                <span class="error">{{ form.subject_name.errors }}</span>
             <label class="control-label">{{ form.subject_name.label_tag }}</label>
             <div class="">{{ form.subject_name }}</div>
         </div>
+            <div class="form-element">
+                <span class="error">{{ form.year.errors }}</span>
+                <label class="control-label">{{ form.year.label_tag }}</label>
+                <div class="">{{ form.year }}</div>
+            </div>
+            <div class="form-element">
+                <span class="error">{{ form.branch.errors }}</span>
+                <label class="control-label">{{ form.branch.label_tag }}</label>
+                <div class="">{{ form.branch }}</div>
+            </div>
     </fieldset>
+        <div class="form-element">
+            <input type="submit" class="btn btn-primary col-md-2 col-md-offset-5 ">
 </div>
-
+    </div>
+</form>
 <br>
 <br>
 <br>

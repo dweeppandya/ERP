@@ -165,6 +165,8 @@ class StudentDetails(models.Model):
 class Subject(models.Model):
     subject_code = models.IntegerField(primary_key=True)
     subject_name = models.CharField(max_length=100)
+    year = models.CharField(max_length=2)
+    branch = models.CharField(max_length=10)
 
     def __str__(self):
         return str(self.subject_code) + ' ' + self.subject_name
