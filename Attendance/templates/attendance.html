@@ -63,11 +63,8 @@
             position: relative;
             z-index: 0;
             background: rgb(186, 188, 182);
-<<<<<<< HEAD
             color: white;
-=======
 
->>>>>>> 7243725aa52d1d81d17e9b28d174e67d64395357
         }
 
         .squaredOne label {
@@ -133,17 +130,12 @@
         </div>
     </div>
 </nav>
-<<<<<<< HEAD
-=======
+
 <form action="{% url 'attendance:save' %}" method="post">
     {% csrf_token %}
     <div class="container">
->>>>>>> 7243725aa52d1d81d17e9b28d174e67d64395357
-
-<div class="container">
-    <button class="btn btn-info " value="togle" onclick="selectAll()" id="toggle">Select all</button>
-</div>
-<form action="      ">
+        <button class="btn btn-info " value="togle" onclick="selectAll()" id="toggle">Select all</button>
+    </div>
     <div class="container">
         <div class="row">
             {% for i in all_students %}
@@ -151,9 +143,9 @@
                     <section>
                         <!-- .squaredOne -->
                         <div class="squaredOne">
-                            <input class="cb" type="checkbox" value="asd{{ forloop.counter }}"
+                            <input class="cb" type="checkbox" value="{{ i.gr_number}}"
                                    id="squaredOne{{ forloop.counter }}"
-                                   name="{{ i.gr_number }}"/>
+                                   name="present"/>
                             <label for="squaredOne{{ forloop.counter }}">{{ forloop.counter }}</label>
                         </div>
                         <!-- end .squaredOne -->
