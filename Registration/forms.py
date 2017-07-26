@@ -1,5 +1,6 @@
 from django import forms
 
+from Configuration.countryConf import countries
 from .models import Faculty, Subject, StudentDetails
 
 
@@ -8,7 +9,14 @@ class StudentForm(forms.ModelForm):
     #     self.fields[field].widget.attrs.update({
     #         'class': 'form-control'
     #     })
-
+    current_country = forms.ChoiceField(
+        choices=countries
+    )
+    permanent_country = forms.ChoiceField(
+        choices=countries
+    )
+    widgets = {
+        'DOB': forms.DateInput(attrs={'class': 'datepicker'})}
     branch = forms.ChoiceField(
         choices=[('Computer', 'Computer'), ('IT', 'IT'), ('EnTC', 'EnTC'), ('Mechanical', 'Mechanical'),
                  ('Civil', 'Civil')])
@@ -25,20 +33,35 @@ class StudentForm(forms.ModelForm):
 
         widgets = {
             'DOB': forms.DateInput(attrs={'class': 'datepicker'}),
-            # 'first_name': forms.TextInput(attrs={'placeholder': 'First Name'}),
-            # 'middle_name': forms.TextInput(attrs={'placeholder': 'Middle Name'}),
-            # 'last_name': forms.TextInput(attrs={'placeholder': 'Last Name'}),
         }
         fields = '__all__'
 
 
 class FacultyForm(forms.ModelForm):
+    permanent_country = forms.ChoiceField(
+        choices=countries
+    )
+    current_country = forms.ChoiceField(
+        choices=countries
+    )
+
     class Meta:
         model = Faculty
+        widgets = {
+            'DOB': forms.DateInput(attrs={'class': 'datepicker'}),
+            'teaching_from': forms.DateInput(attrs={'class': 'datepicker'})
+        }
         fields = '__all__'
 
 
 class SubjectForm(forms.ModelForm):
+    branch = forms.ChoiceField(
+        choices=[('Computer', 'Computer'), ('IT', 'IT'), ('EnTC', 'EnTC'), ('Mechanical', 'Mechanical'),
+                 ('Civil', 'Civil')])
+    year = forms.ChoiceField(
+        choices=[('FE', 'FE'), ('SE', 'SE'), ('TE', 'TE'), ('BE', 'BE'), ]
+    )
+
     class Meta:
         model = Subject
         fields = '__all__'

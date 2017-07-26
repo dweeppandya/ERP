@@ -10,7 +10,7 @@ from django.db import models
 # Subject (Entity)
 
 def faculty_directory_path(instance, filename):
-    return 'Faculty/{0}/{1}'.format(instance.faculty_code, filename)
+    return 'Media/Faculty/{0}/{1}'.format(instance.faculty_code, filename)
 
 
 # Create your models here.
@@ -20,7 +20,7 @@ class Faculty(models.Model):
     last_name = models.CharField(max_length=100)
     DOB = models.DateField(default='1976-02-11')
 
-    faculty_code = models.CharField(max_length=50, primary_key=True)
+    faculty_code = models.AutoField(max_length=50, primary_key=True)
 
     # account details
     salary = models.IntegerField(default=10)
@@ -79,13 +79,13 @@ class Faculty(models.Model):
     doc_profile_pic = models.FileField(upload_to=faculty_directory_path)
 
     def __str__(self):
-        return self.faculty_code + ' ' + self.first_name
+        return str(self.faculty_code) + ' ' + self.first_name
 
 
 def student_directory_path(instance, filename):
     # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
     # "user_%d" % instance.owner.id, "car_%s" % instance.slug, filename
-    return 'Student_{0}/{1}'.format(instance.gr_number, filename)
+    return 'Media/Student/Student_{0}/{1}'.format(instance.gr_number, filename)
 
 
 class StudentDetails(models.Model):
@@ -98,21 +98,15 @@ class StudentDetails(models.Model):
     shift = models.CharField(max_length=1)
     caste_type = models.CharField(max_length=20)
     branch = models.CharField(max_length=50)
-    gr_number = models.CharField(max_length=10)
+    gr_number = models.AutoField(max_length=10, primary_key=True)
 
     # personal details
-    email = models.EmailField(max_length=100)
-    mobile = models.BigIntegerField(default=0)
-    religion = models.CharField(max_length=20)
-    sub_caste = models.CharField(max_length=30)
+    email = models.EmailField(max_length=100, null=True)
+    mobile = models.BigIntegerField(default=0, null=True)
+    religion = models.CharField(max_length=20, null=True)
+    sub_caste = models.CharField(max_length=30, null=True)
     handicapped = models.BooleanField(default=0)
-    nationality = models.CharField(max_length=50)
-
-    # emergency contact
-    emergency_name = models.CharField(max_length=50)
-    emergency_mobile = models.BigIntegerField()
-    emergency_relation = models.CharField(max_length=50)
-    emergency_address = models.CharField(max_length=100)
+    nationality = models.CharField(max_length=50, null=True)
 
     # family
     # father
@@ -121,12 +115,19 @@ class StudentDetails(models.Model):
     father_designation = models.CharField(max_length=30)
     father_mobile = models.BigIntegerField(default=0)
     father_email = models.EmailField()
+
     # mother
     mother_name = models.CharField(max_length=50)
     mother_profession = models.CharField(max_length=30)
     mother_designation = models.CharField(max_length=30)
     mother_mobile = models.BigIntegerField(default=0)
     mother_email = models.EmailField(null=True)
+
+    # emergency contact
+    emergency_name = models.CharField(max_length=50)
+    emergency_mobile = models.BigIntegerField()
+    emergency_relation = models.CharField(max_length=50)
+    emergency_address = models.CharField(max_length=100)
 
     # permanent address
     permanent_address = models.CharField(max_length=100)
@@ -164,6 +165,8 @@ class StudentDetails(models.Model):
 class Subject(models.Model):
     subject_code = models.IntegerField(primary_key=True)
     subject_name = models.CharField(max_length=100)
+    year = models.CharField(max_length=2)
+    branch = models.CharField(max_length=10)
 
     def __str__(self):
         return str(self.subject_code) + ' ' + self.subject_name

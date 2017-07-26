@@ -1,0 +1,4 @@
+1.       Goto to the software's directory(In terminal)
+2.       sudo setcap CAP_NET_BIND_SERVICE=+eip ./IntelliJIDEALicenseServer_linux_amd64
+3.       ./IntelliJIDEALicenseServer_linux_amd64
+gsettings set com.canonical.Unity.Launcher launcher-position Bottom
